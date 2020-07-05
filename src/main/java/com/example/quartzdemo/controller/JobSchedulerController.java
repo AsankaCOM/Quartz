@@ -72,7 +72,7 @@ public class JobSchedulerController {
     private Trigger buildJobTrigger(JobDetail jobDetail, ZonedDateTime startAt) {
         return TriggerBuilder.newTrigger()
                 .forJob(jobDetail)
-                .withIdentity(jobDetail.getKey().getName(), "email-triggers")
+                .withIdentity(jobDetail.getKey().getName(), "file-send-triggers")
                 .withDescription("Send File Trigger")
                 .startAt(Date.from(startAt.toInstant()))
                 .withSchedule(SimpleScheduleBuilder.simpleSchedule().withMisfireHandlingInstructionFireNow())
