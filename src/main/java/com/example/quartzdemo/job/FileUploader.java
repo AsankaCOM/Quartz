@@ -17,8 +17,8 @@ import javax.mail.internet.MimeMessage;
 import java.nio.charset.StandardCharsets;
 
 @Component
-public class EmailJob extends QuartzJobBean {
-    private static final Logger logger = LoggerFactory.getLogger(EmailJob.class);
+public class FileUploader extends QuartzJobBean {
+    private static final Logger logger = LoggerFactory.getLogger(FileUploader.class);
 
     @Autowired
     private JavaMailSender mailSender;
@@ -36,7 +36,10 @@ public class EmailJob extends QuartzJobBean {
         String recipientEmail = jobDataMap.getString("email");
 
 //        sendMail(mailProperties.getUsername(), recipientEmail, subject, body);
-        System.out.println(">>>>> body >>>>>>" + body);
+        System.out.println("sending thread" + body);
+        FakeWorkerServiceThread myThread = new FakeWorkerServiceThread(body);
+        myThread.start();
+        System.out.println("Done sending" + body);
     }
 
     private void sendMail(String fromEmail, String toEmail, String subject, String body) {

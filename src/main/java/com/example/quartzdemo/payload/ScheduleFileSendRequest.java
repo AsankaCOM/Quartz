@@ -6,7 +6,7 @@ import javax.validation.constraints.NotEmpty;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 
-public class ScheduleEmailRequest {
+public class ScheduleFileSendRequest {
     @Email
     @NotEmpty
     private String email;
