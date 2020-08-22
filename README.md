@@ -9,3 +9,5 @@ docker exec -it <container-id> /bin/sh -c 'mysql -u root -ppassword --database=q
 
 * Optionally login to container:
 docker exec -it <container-id>  mysql -uroot -ppassword
+  
+..
